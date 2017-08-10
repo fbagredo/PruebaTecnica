@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.bookStore.model.Libro" table="libro">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="titulo" type="string">
+			<column name="titulo" length="1000" />
+		</property>
+		<property name="cantidad" type="java.lang.Integer">
+			<column name="cantidad" />
+		</property>
+		<property name="precio" type="java.lang.Double">
+			<column name="precio" />
+		</property>
+		<property name="linkImagen" type="string">
+			<column name="linkImagen" length="1000" />
+		</property>
+	</class>
+</hibernate-mapping>
