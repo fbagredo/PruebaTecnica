@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15023931204340" configfile="/BookStore/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15023931204340" configfile="/BookStore/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf15026452314670" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15026452314671" path="index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="carrito.xhtml" id="pf15026452314672" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15026452314671" path="carrito.xhtml"/>
+  <links id="pf15026452314671" target="pf15026452314672" source="pf15026452314670" outcome="irCarrito"/>
+</pageflow:Pageflow>
