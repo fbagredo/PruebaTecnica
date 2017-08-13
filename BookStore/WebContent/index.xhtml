@@ -4,14 +4,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
 
 <f:loadBundle basename="resources.application" var="msg"/>
 
 <head>
+	<title>#{msg.welcomeTitle}</title>
 </head>
-
+	
 <h:body>
-        #{consultaLibros.titulo}
+	<h:form> 
+    <p:dataScroller value="#{consultaLibros.libros}" var="libro" chunkSize="10">
+        <f:facet name="header">
+            Libros disponibles
+        </f:facet>
+ 
+        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+            <p:graphicImage name="resources/imagenes/#{libro.linkImagen}.jpeg" /> 
+ 
+            <p:outputPanel>
+                <h:panelGrid columns="2" cellpadding="5">
+         
+         			<h:outputText value="#{libro.titulo}" style="font-weight: bold"/>
+         			<h:outputText value="" />
+                    
+                    <h:outputText value="Cantidad disponible:" />
+                    <h:outputText value="#{libro.cantidad}" style="font-weight: bold"/>
+ 
+                    <h:outputText value="Precio:" />
+                    <h:outputText value="#{libro.precio}" style="font-weight: bold"/>
+                </h:panelGrid>
+            </p:outputPanel>
+        </h:panelGrid>
+    </p:dataScroller>
+</h:form>
+
 </h:body>
 </html>

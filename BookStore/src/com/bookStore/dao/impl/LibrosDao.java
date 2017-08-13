@@ -11,6 +11,7 @@ import com.bookStore.persistence.HibernateUtil;
 
 public class LibrosDao implements IDao {
 	
+	@SuppressWarnings("unchecked")
 	public List<Libro> consultarLibro(){
         Session session = HibernateUtil.buildSessionFactory().openSession();
         
