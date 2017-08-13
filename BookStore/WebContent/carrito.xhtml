@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:loadBundle basename="resources.application" var="msg" />
+
+<head>
+<title>#{msg.welcomeTitle}</title>
+</head>
+
+<h:body>
+	<h:form>
+
+		<h1 class="title ui-widget-header ui-corner-all">#{msg.tituloIndex}</h1>
+
+		<h3 style="margin-top: 0"></h3>
+		<p:separator />
+
+		<p:dataTable var="libroSeleccionado"
+			value="#{consultaLibros.librosSeleccionados}">
+
+			<p:column>
+				<p:commandButton value="Eliminar" title="Eliminar"
+					actionListener="#{consultaLibros.eliminar(libroSeleccionado)}"
+					ajax="false" />
+			</p:column>
+			<p:column headerText="libros">
+				<h:outputText value="#{libroSeleccionado.titulo}" />
+			</p:column>
+
+			<p:column headerText="cantidad">
+				<h:outputText value="#{libroSeleccionado.cantidad}" />
+			</p:column>
+
+			<p:column headerText="Valor unitario">
+				<h:outputText value="#{libroSeleccionado.precio}">
+					<f:convertNumber pattern="#,###,##0.00" />
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="Valor total">
+				<h:outputText value="#{libroSeleccionado.precioTotal}">
+					<f:convertNumber pattern="#,###,##0.00" />
+				</h:outputText>
+			</p:column>
+		</p:dataTable>
+		
+		Valor total de la compra <h:inputText id="text1"
+			value="#{consultaLibros.precioTotalCarrito}">
+			<f:convertNumber pattern="#,###,##0.00" />
+		</h:inputText>
+		
+		<h:commandButton value="Confirmar la compra" action="#{consultaLibros.actualizarLibro}" />
+		
+	</h:form>
+
+</h:body>
+</html>
